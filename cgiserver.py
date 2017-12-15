@@ -1,6 +1,4 @@
-import http.server
+# -*- coding: utf-8 -*-
 
-server_address = ("", 9000)
-handler_class = http.server.CGIHTTPRequestHandler
-server = http.server.HTTPServer(server_address, handler_class)
-server.serve_forever()
+import http.server
+http.server.test(HandlerClass=http.server.CGIHTTPRequestHandler)
