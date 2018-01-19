@@ -11,16 +11,16 @@ def defaultPosition():
 
 def dragMove(count):
     move = int(count) * 10
-    cur.dragRel(0, move, 0.7)
+    cur.dragRel(0, move, 0.5)
 
 def rightDir():
     cur.keyDown('shift')
-    cur.dragRel(-200, 0, 0.5)
+    cur.dragRel(-100, 0, 0.2)
     cur.keyUp('shift')
 
 def leftDir():
     cur.keyDown('shift')
-    cur.dragRel(200, 0, 0.5)
+    cur.dragRel(100, 0, 0.2)
     cur.keyUp('shift')
 
 def lateFire(seconds, callback):
@@ -32,5 +32,14 @@ def handler(func,*args):
     return func(*args)
 
 def testLeftDir():
+    sleep(5)
     defaultPosition()
-    lateFire(5, leftDir)
+    lateFire(1, leftDir)
+    lateFire(1, leftDir)
+
+def testLeftAndMove():
+    sleep(5)
+    defaultPosition()
+    leftDir()
+    defaultPosition()
+    dragMove(10)
